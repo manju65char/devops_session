@@ -1,0 +1,438 @@
+what is cloud : 
+
+cloud computing : 
+it refers to the data and applications being stored and run on the cloud rather than being stored on local machine or on premises 
+
+
+who ? 
+
+
+benefits : 
+
+agility : 
+
+
+elasticity 
+
+cost savings 
+
+deploy globally in minutes 
+
+
+types : 
+
+IAAS 
+PAAS
+SAAS 
+
+
+IAAS 
+vm , Storage , network components 
+
+PAAS : 
+vm , Storage , network components + OS 
+
+Container service , eks, elastic bean stalk 
+
+developers and devops 
+
+SAAS : 
+
+IAAS + PAAS 
+
+
+google drive 
+
+Gmail  -> 
+
+end user or customers 
+
+
+cloud computing deployment models : 
+
+public cloud 
+
+private cloud vpc / on premises 
+
+Hybrid 
+
+mutli cloud 
+
+aws , azure , gcp 
+
+
+region : us-east-1
+
+AZs : us-east-1a, us-east-1b , us-east-1c, us-east-1d
+
+
+
+AWS ACCOUNT --------> REGION , -------------> AZ ---------------> VM OR EC2 INSTANCE 
+
+
+
+Network : 
+
+public and private network -> vpc 
+
+
+=================
+
+
+web server 
+
+apache -> apache2(debian) or httpd(fedora) , nginx
+
+
+Linux distributions or flavours  : 
+
+
+1.debian Linux distribution family
+2.fedora Linux distribution family
+
+
+1.debian Linux distribution family   -> apt or apt-get 
+ubuntu          -> sudo apt-get install apache2 -y 
+Debian
+kali Linux 
+
+
+2.fedora Linux distribution family   -> yum   
+
+amazon Linux 2   -> sudo yum install apache2 -y 
+fedora
+centos
+redhat
+
+openSUSE 
+
+--
+independent Linux dis 
+
+
+almalinux
+busybox
+alpine
+distoless 
+
+========================
+
+sudo apt update -y
+
+sudo apt-get install apache2 -y 
+
+
+sudo systemctl start apache2
+
+sudo systemctl enable apache2
+
+
+cd /var/www/html
+
+echo "Welcome to DevOps session , hope the session is not making you  bored "   >> index.html 
+
+echo "Welcome to DevOps session , hope the session is not making you  bored "   > index.html 
+
+
+
+========
+sudo systemctl status apache2
+
+
+============================
+
+windows 
+
+community or opensource   
+enterprise 
+
+Unix ----> enterprise ->  , C++ , other languages 
+
+
+
+Linux :    -> published as community edition 
+
+Linus Torvalds 
+
+
+
+it's an os , opensource os , 
+
+
+opensource -> it's for free , 
+
+
+================
+
+it's opensource os , it has both text and minimalistic graphical based os 
+
+
+
+usage of Linux 
+
+OS : 
+
+security : 
+
+
+stability and reliability : 
+
+
+performance : 
+
+
+package mgt : 
+
+
+demerits : 
+
+software compatibility : 
+
+
+driver  
+
+
+
+user interface ?
+
+
+-------------------
+
+Linux distros : 
+
+
+
+Linux distributions or flavours  : 
+
+
+1.debian Linux distribution family
+2.fedora Linux distribution family
+
+
+1.debian Linux distribution family   -> apt or apt-get 
+ubuntu          -> sudo apt-get install apache2 -y 
+Debian
+kali Linux 
+
+
+2.fedora Linux distribution family   -> yum   
+
+amazon Linux 2   -> sudo yum install apache2 -y 
+fedora
+centos
+redhat
+
+openSUSE 
+
+
+Mac OS : 
+brew (homebrew package manager) -> sudo brew install apache2 -y 
+
+
+
+APT
+DNF
+Zypper 
+Snap -> BOTH Debian and fedora 
+RPM -> 
+DPKG -> 
+
+
+
+
+--
+independent Linux dis 
+
+
+almalinux
+busybox
+alpine
+distoless 
+
+========================
+
+sudo apt update -y
+
+sudo apt-get install apache2 -y 
+sudo apt-get update apache2 -y 
+
+
+
+sudo systemctl start apache2
+
+sudo systemctl enable apache2
+
+
+cd /var/www/html
+
+echo "Welcome to DevOps session , hope the session is not making you  bored "   >> index.html 
+
+echo "Welcome to DevOps session , hope the session is not making you  bored "   > index.html 
+
+
+=====================
+
+
+LINUX OS : it's combination of Shell and kernel 
+
+
+kernel : it's  heart of operating system  , it's core component of os 
+
+Linux os depends on kernel 
+
+system depends on Linux os 
+
+
+
+.py
+.java 
+.sh 
+
+
+sample.py 
+
+html,css,js 
+
+
+programming execution process : 
+
+source code    compiling phase                        complier                              executing phase                      pvm , jvm                             
+.py                                                   compiled code ,bytecode (pyc,javac)                                        processor/cpu
+
+
+
+
+user    terminal               
+
+          ls 
+
+
+
+------------
+
+
+
+
+Linux file/dir/folders structure 
+
+
+/ -> root directory /main / top level 
+
+
+all other dir known as ---> sub directories 
+
+/bin -> binary dir -> it holds the essential user command binaries that all user can access 
+
+it contain all executable files and Linux utilities (commands )
+
+ex: shell scripts ,  ls , mv , yum , apt, rm ... reside here 
+
+
+/etc --> to store the system-wide  configuration . acting as control panel on Linux 
+
+hosts -> dns mapping file  -> dns resolution  user -->  amazon.com ---> dns resolver ---> 2.2.3.2 --> respond back to the user  -> 
+passwd -> this file holds users , Michael 
+group -> 
+sudoers ->  sudo configuration 
+
+
+/home -> User home dir -> it contains the home directories for users  and other accounts 
+
+/home/Michael
+
+
+/var -> variable files  --> logs , mail, print etc 
+
+journalctl --> 
+
+=========================
+
+/usr -> user binaries -> multi user utilities , applications , and libraries 
+
+/usr/bin/bash
+git add .
+
+/sbin -> system admin  for system maintenance and troubleshooting 
+
+fdisk , ifconfig , reboot 
+
+
+/opt -> optinal dir , SonarQube, tomcat, nexus , maven and so on ..
+
+
+/svc -> server specific services related data 
+
+
+ex : web servers files , (apache, httpd, nginx ) can be stored here 
+
+
+/tmp -> temporary files --> created by system or users 
+
+
+/proc -> process information 
+
+/dev --> devices files , hard disk, usb , cd rom 
+
+--
+
+
+/lib 
+/mnt 
+/media
+/boot
+/root -> root user or admin user 
+
+/run 
+/usr/local 
+/lib64 -> 
+
+
+========================
+Linux commands  
+
+navigation and dir control commands ? 
+
+=====================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
