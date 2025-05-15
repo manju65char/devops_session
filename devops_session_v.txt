@@ -394,6 +394,1805 @@ navigation and dir control commands ?
 
 =====================================================
 
+# 15TH MAY 2025 
+---------------
+
+give all devops tools and  their directory path in linux 
+
+there are numerous DevOps tools available, and they can be installed in different locations in the Linux file system. The following is a list of some popular DevOps tools along with their common installation paths:
+
+tools -> executable path /bin and configuration path /etc
+
+
+Git 
+
+Path: Usually installed system-wide, binaries in /usr/bin/git and configuration files in /etc/gitconfig.
+User configuration: ~/.gitconfig.
+
+Ansible 
+
+Path: Executable located in /usr/bin/ansible.
+Configuration: /etc/ansible/ansible.cfg.
+Playbooks and inventory files  can be stored anywhere, often in the user's working directory.
+
+
+Puppet
+
+Path: Executables located in /opt/puppetlabs/bin.
+Manifests and modules are stored in /etc/puppetlabs/code.
+
+Chef 
+
+Path: Executables located in /opt/chef/bin.
+Cookbooks and related files are stored in /etc/chef or /var/chef.
+
+
+Jenkins  -> /var/lib/jenkins/workspace
+
+Path: The installation path may vary, but commonly found in /var/lib/jenkins.
+Configuration: /etc/default/jenkins or /etc/sysconfig/jenkins.
+
+Docker
+
+Path: Executable located in /usr/bin/docker.
+Docker images and containers are stored in /var/lib/docker by default.
+
+Kubernetes (kubectl)
+
+Path: Executable located in /usr/bin/kubectl.
+Configuration: ~/.kube/config.
+
+Terraform
+
+Path: Executable located in /usr/bin/terraform.
+Configuration files can be stored in any directory, commonly in the user's working directory (terraform.tf, variables.tf, etc.).
+
+Prometheus
+
+Path: Executable located in /usr/local/bin/prometheus.
+Configuration: /etc/prometheus/prometheus.yml.
+
+Nagios
+
+Path: Executables and configuration files are commonly found in /usr/local/nagios or /etc/nagios.
+
+
+Grafana
+
+Path: The installation path may vary, but commonly found in /usr/share/grafana.
+Configuration: /etc/grafana/grafana.ini.
+
+ELK Stack (Elasticsearch, Logstash, Kibana) in AWS
+
+Path: The installation paths may vary, but configuration files and data are typically stored in /etc/ or /var/.\
+
+==================================================================================================================================
+NAVIGATION AND DIR CONTROL COMMANDS 
+
+man -> manual page 
+
+--help
+
+
+
+
+$ -> normal user  -> id -u  -> 1000
+
+sudo -i  or su -
+
+# -> root user or admin user -> id -u  -> 0
+
+
+exit -> to go back to normal user or logout from root user 
+
+
+. 
+..
+
+/
+
+
+ll -> longlist of the files and directories 
+ls -ld */   -> to list only the directories in a directory in Linux
+
+ls -> list of all the files and directories but it doesn't show the hidden filesc(. or ..files/dir) and folders
+ls -a -> list of all the files and directories along with  hidden files and folders
+ls -l -> longlist of the files and directories
+ls -id <name of dir> -> to display the particular dir 
+ls -lh -> list out the all files and directories with size 
+ls -lR   -> to list the all folder with subfolders 
+ls -lh  .txt     -> to see the size of a file 
+ls -i    -> inode values
+ls -iltr -> full inform of files and dir with inode values
+man ls -> 
+ls -> to list the files and dirs in the local machine
+ls -l -> to display the longlist of  default files and dir
+ll    -> to display the longlist of  default and hidden files and dir
+ll -h -> to display the longlist of  default and hidden files and dir with their size , -h ( human readable format )
+ls -ltr  -> to display the longlist of  default files and dir, sort by time  with reversal order
+ls -lt   -> to display the longlist of  default files and dir, sort by time
+--------
+
+touch command
+
+touch < file name >   -> to create a empty file
+touch filename{1..30} -> to create multiple files
+
+
+---------
+echo command : to print or to display the  line ( of content )
+
+echo "some content" > samplefile.txt   -> creating a file with content , the content is redirecting or replacing . 	
+echo 'hello world' >> samplefile1  -> creating a file with content , the content is appending 
+
+echo -e '#!/bin/bash\necho "Hello world"\nthis is third line ' > sample.txt   
+
+-> here you used single quote and double quotes, so this is how creating script with some content .      \n -> new line , -e -> 
+
+
+echo >> org1.txt hello        -> creating a file with content
+echo <name of file >          - to display or print the output  of executable file 
+echo -n > newfile1.txt     ->  to make file empty ( existing file with content)
+
+
+---------
+cat command 
+
+cat -> to display the content of file
+
+cat /etc/shells -> to display the default shells in your local machine
+
+cat >> file1.txt --> interactive mode , appending the content 
+cat > file1.txt --> interactive mode 
+
+cat file1.txt>file2.txt     -> to redirect the content from one file to another existing or new file ,
+
+cat id_rsa.pub > authorized_keys
+
+cat file1.txt >> file2.txt  -> to appending the content from one file to another existing or new file
+
+
+file1
+file2 
+
+file3 
+
+
+cat file1 file2 > file3   
+
+vim   
+  
+---------
+mkdir command   -> 
+
+mkdir < dir > --> to create the dir
+
+mkdir day{1..40}      ->  to create multiple dir
+
+
+mkdir -p <maindir>/<subdir>  
+
+mkdir dir1 && cd dir1  -> used to create and switch to the same dir ,
+
+mkdir dir2 && touch dir2/file1.txt   -> to create a folder and create new file in the same folder (..)
+
+mkdir dem6 && echo "my fourth demo session" >> dem6/file5.txt    -> used to create new dir with content file 
+
+1.1.2.
+
+incremental changes in version is called upgrade 
+
+
+&& and | 
+
+-----
+
+rm commands 
+
+
+rm  --> to delete/remove  the file 
+
+rmdir <dir>  --> to delete the empty dir only
+
+rm -i <file name >   -- it's going to ask user to confirmation before removing the files ( yes/y or no/n )
+
+rm -R <file name >/dir  --> to delete the dir recursively 
+
+rm -rf <dir>  --> to delete the dir with content
+
+rm -rf file_name 
+
+
+---> dec-15 --------------------------------------
+
+
+| -> Temporary storage  and && -> 
+
+&& -> to run the multiple commands on terminal 
+
+
+
+
+
+
+journalctl | tail -n 3 
+
+---------
+cd commands  :
+
+cd -> used the changing the dir
+cd or cd ~ --> to go back to home dir
+cd - -> used to go back recent worked dir, the dir which u entered most recently 
+cd .. -> used to go back previous dir
+cd ../.. -> it takes you to previous dir, with two steps back 
+
+--------
+
+--------
+
+mv command  
+
+
+mv < old file>  <new file>
+
+dont have particular command for rename the file or dir 
+
+mv 
+
+mv --> used to move the file/dir from one dir to another dir and also used to rename the file/dir
+--------
+
+cp command -> to copy the files or content of file or dir form source point to destination point 
+
+cp 
+-----------------
+
+networking commands :
+
+
+httpd webserver
+
+html files/css files  to create web pages - webserver http/nginx
+
+
+publicip:90
+publicip:90
+publicip:89
+
+
+
+https  : 443
+
+http : 80
+
+system 
+httpd : 80
+tomcat 8080
+nginx : 80
+
+jenkins : 8080
+
+
+
+grep/find/cut/sed/awk
+
+
+hostport:containerip
+8989:80   -> amazon.com
+8983:80   -> aws.amazon.com
+79908:80  -> shopping.amazon.com
+
+
+
+nginx:80
+
+amazon.com   8888: 80            47477
+aws.amazon.com 9989: 80             8484
+shopping.amazon.com  8848:80       448
+
+--------------------------
+process mgt commands 
+
+ps
+
+
+
+ps -ef  OR ps aux   ->  detailed list of all processes running on the system,
+
+
+
+ps aux | grep nginx    -> Filter Processes by Name
+
+sudo lsof -i :80    -> This command is used to list information about files that are currently opened by processes.
+
+sudo kill PID
+
+sudo kill -9 PID   --> -9 (forcefully)
+
+top : to display linux tasks and running process 
+
+sar : ( system activity report ), used to collect the CPU,MEMORY AND I/O usage  (not found in bash shell )
+
+
+
+---------------------------------------------------------------------------------------------------
+wc     -> wc/word count used to count the lines words and characters in a file
+
+manjunathachar@manjunathachar-k-t:~$ wc var1.sh 
+
+ 19  40 260 var1.sh
+ 
+ 
+ wc -L  var1.sh     -> display the big line or longest line or line lenth in  file 
+ 
+ cat -n file.txt     -> to display the file content in chronological order,
+ 
+ tac file.txt.sh  -> to display the content of file in reversal order
+ 
+ 
+more file1.txt     -> to display more information of particular file , can tab in lapltop
+
+ex: the file which conatains 1000 lines , 501th 
+
+
+
+more -s  file1.txt     -> to surface the content in the file or remove the space or gap in the file 
+
+more +40 file1.txt    -> to start the files from line number 40 in the file 
+
+less file1.txt     -> to start the files from line number 40 in the file , to display big file we use less command
+
+head file1.txt or head -n 5 file1.txt     -> used to print 1st 10 lines of the file , we customised based on changing the numbers
+
+tail file1.txt       -> to get last 1o lines of the file 
+
+/var/toolname/filename/
+
+journalctl | tail
+-------------------
+
+
+User/Group Administration commands
+
+Note: Old password is first requested then new password is requested twice for confirmation.
+
+use sudo or root access to execute commands 
+
+useradd(debian) or adduser(Fedora)  -> creates a new user a/c -> only root user can execute this command 
+  
+passwd : changes a user's passwords
+
+cat /etc/passwd :  To view a list of users on a Linux system,
+
+
+sudo useradd username -> Creating a User
+
+
+sudo passwd username   -> Setting Password for a User:
+
+
+sudo userdel username   -> Deleting a User:
+
+Creating a Group:   
+
+sudo groupadd groupname   -> creating group 
+
+sudo groupadd developers
+
+sudo usermod -aG groupname username    -> Adding or appending  a User to a Group 
+
+sudo gpasswd -d username groupname    -> removing a user from  a specific group      
+
+
+sudo usermod -d /new/home/directory username  -> Changing a User's Home Directory:
+
+
+sudo usermod -s /path/to/new/shell username  -> Changing a User's Shell:
+
+sudo usermod -s /bin/bash john
+
+
+sudo groupdel groupname  Deleting a Group:
+
+sudo groupdel developers
+
+
+cat /etc/group   -> Listing Groups 
+
+
+id -> it's one more command which will show the user details such as his primary group and his secondary group.
+
+$  -> id -u -> 1000  -> normal user 
+#  -> id -u -> 0   -> root user 
+
+su -> to switch user and to come out from the user press CTRL+D,logout or exit.
+
+----------------------------------------------------------------------
+chmod command--> change mode 
+
+alpha/num 
+
+there are two ways to give permission to the user or group or others to access the files or directories
+
+drwxrwxr-x  3 manjunathachar manjunathachar 4096 Feb 26 17:15 newdir/
+-rw-rw-r--  1 manjunathachar manjunathachar  138 Feb 26 17:48 sample.txt
+
+
+alpha
+number   0 to 7
+
+- 
+r- read -> 4
+w - write -> 2
+x - execute -> 1 
+               7
+- = 0
+
+user                        group                           other
+r  w  x                    r w x                              r - x 
+4  2  1                    4 2  1                             4 0 1
+7                            7                                    5
+
+
+5            6        4  
+r-x         rw-       r--
+
+
+
+chmod 564 sample.txt
+
+
+
+
+
+chmod 300 roboshop 
+d -wx --- ---
+
+
+chmod 563 roboshop 
+
+d r-x rw- -wx
+  
+chomd 400 pem.file 
+-r-- --- ---
+
+
+        file or dir     user   group   others
+alpha-    -  or d       R W X  R W X   R W X
+num -                   4+2+1  4+2+1   4+2+1     ( 0 to 7)  
+group   others
+alpha-    -  or d       R W X  R W X   R W X
+num -                   4+2+1  4+2+1
+                          7      7       7         
+
+"-" > that's not allowed to access the files and folders 
+
+file1 
+
+
+- -wx rw- ---   username groupname  sizefile  file created date and time   file name
+
+
+  021 420 000
+  3    6   0  
+  
+  chmod  360 filename
+  
+  
+------------------------------------
+
+Remote Access Commands
+
+SSH (Secure Shell):   -> Connect to a remote server
+
+ssh username@remote_host 
+
+
+
+SCP (Secure Copy):   -> Copy files between local and remote systems securely: jenkins publish over ssh -> 
+
+chmod 400 my-aws-key.pem
+
+scp /path/to/local/file username@remote_host:/path/to/remote/destination   -> one server to another server
+
+scp -i /path/to/your/keyfile.pem /path/to/local/file username@ec2-instance-ip-or-dns:/path/on/ec2  -> local machine to aws-ec2
+
+
+scp -i "k8s-project.pem" /home/manjunathachar/var1.sh ec2-user@ec2-184-169-248-88.us-west-1.compute.amazonaws.com:/home/ec2-user
+
+
+scp -i "your pem file" <local server's directory path> <remote server's directory path>
+
+scp -i "amazon-linux2.pem" /home/manjunathachar/sys-update.sh ec2-user@ec2-44-223-65-183.compute-1.amazonaws.com:/home/ec2-user
+
+by default the pem has 664  private key 
+
+r -> 4
+w -> 2
+x -> 1
+
+0 to 7 
+
+- --- --- --- 
+  rwx rwx rwx
+  421 421 421
+   7   7   7 
+   
+   alpha
+   number
+   
+ -   r-- --- ---
+ f   4    0   0
+   
+ chmod 400 
+   
+   
+   
+   
+  cp
+  
+
+
+
+scp -i "my-aws-key.pem" ec2-user@ec2-34-207-173-221.compute-1.amazonaws.com:/path/on/ec2/var1.sh /path/on/local/machine  --> copy the files from ec2 to local machine.
+
+
+
+
+scp -i "my-aws-key.pem" ec2-user@ec2-34-207-173-221.compute-1.amazonaws.com:/home/ec2-user/robo-shop /home/manjunathachar/linuxdemo/newdemo1
+
+
+
+telnet : Connect to a remote server (less secure than SSH, often not recommended):
+
+telnet remote_host
+
+ssh -i username:remotehost
+
+
+----------------------------------------------------------------------
+Hardware Information Commands :
+
+free : To find the amount of free and used RAM memory in the system.
+
+du -> 
+df
+
+
+
+sonarqube , maven , 2 4 ram required , 2 , 4 cpc ,
+
+
+dmidecode -t 17  -> It give the RAM information like type of RAM(SD RAM, DRAM or DDR/2/3),Speed , Manufacture etc -> root user can perform this command 
+
+vmstat: it will gives the virtual memory statistics .
+
+
+System resource commands 
+
+Man -> manual page , metadata of the linux utilities 
+
+who -> displays the current user working on the system
+
+w -> show who is logged on and what they are doing
+
+users : displays a compact list of the users currenly logged on the system
+
+whoami : display the current user info who gave this command
+
+whereis -> path/locate the binary, source and manual page for a command
+
+date -> print or set the system date and time
+
+df ->   for entire system   report file system disk space usage -> displays the local disc drive , ssd, hdd 
+
+du -> for fils or dir estimate file space usage, it displays the detailed information of file and folder usage
+
+du -sh < dir name >   -> to see the size of directory   ( -s summarise the files and folders ) , 
+
+hostname -> show or set the system host name ,in ec2 instace -> private ip of instance 
+
+ifconfig or hostname -i or ip a  -> to find the ip address 
+
+whatis ls
+
+uptime -> how long the system has been ruuning 
+
+last  -> show listing of last logged in users 
+last root -> to get the most recently logged in as root users
+sudo lastb ->  to get the list of all bad log ins in your local machine
+  
+
+
+systemctl start <name of service >    ---> debain/ubuntu/fedora 
+
+service <name of service > start      ---> in  redhat/centos
+
+systemctl -> used to check the running services in your local machine
+
+systemctl --failed   -> used to get the failed service in the system
+
+systemctl start <name of service >  to start the service (prometheus service)
+systemctl restart <name of service >  to restart the service (prometheus service)
+systemctl reload <name of service >  to reload the service (prometheus service)
+systemctl daemon-reload  ->  whenever you make any changes in system config file , have to reload or restart the systemd or system daemon  
+systemctl status <name of service >  to check status of  the service (prometheus service)
+systemctl enable <name of service >  to enable  the service at boot,  (prometheus service)
+systemctl stop <name of service >  to stop the service (prometheus service) 
+jounalctl -> to get systemlogs 
+
+
+
+chown -> changing ownership 
+
+chown username <file or dir name >
+
+
+----------------------------------------------------------------------
+
+Archive/Data Backup Commands :
+
+zip -> If you have a bunch of files and folders and want to compress them into one archive, use zip
+
+zip archive.zip file1 file2 directory1  -> Command to Create a Zip Archive:
+
+unzip archive.zip -d destination_folder ->  unzip archive.zip -d destination_folder
+
+----
+gzip ->  If you want to compress a single file, use gzip.
+
+gzip file1  -> Command to Create a Gzip Archive:
+
+gzip -d file1.gz   ->  Command to Extract a Gzip Archive:
+
+
+rsync 
+
+---
+
+tar -> tape archive used  to compress, archive and store files and directories in local machine
+
+-c --create Create a new archive.
+-x --extract Extract files from an archive.
+-t --list List the contents of an archive.
+-f --file=ARCHIVE Use archive file or dir ARCHIVE.
+-v --verbose Verbosely list files processed
+
+
+cvf  ./name of archive file.tar  ./name of file or dir    --> to create tar file
+
+tar -cvf archive.tar file1 file2 directory1
+
+
+tar xvf name of archive file.tar  -->  to extract the tar files
+
+
+
+
+====================================
+
+Networking commands :
+
+
+manjunathachar@manjunathachar-k-t:~$ ip address show or ifconfig   -->  to see the ip address 
+
+ip route  or route --> default gateway 
+
+netstat  -rn  --> same as route 
+
+nmcli   --> to see dns resolver 
+
+cat /etc/resolv.conf   --> to see the aws name server .
+
+to find the remote network information like its ipaddress , routes , system online or not 
+
+dig google.com 
+
+nslookup( old command)   --> same as dig to get ipaddress of remote network
+
+to check the route , how it's routing, how many hops it's going to hit to reach the destination .
+
+traceroute google.com   ( install traceroute -> sudo apt-get install traceroute)
+
+Traceroute is a network diagnostic tool used to trace the route that network packets take from your computer to a destination host or server on the internet.
+
+This is a traceroute command showing the path and response times of data traveling from your computer to Google's servers. Each line represents a different network device (like routers) the data passes through each hops
+
+
+manjunathachar@manjunathachar-k-t:~$ traceroute google.com
+traceroute to google.com (142.250.205.238), 30 hops max, 60 byte packets
+ 1  192.168.0.1 (192.168.0.1)  8.222 ms  8.835 ms  13.865 ms
+ 2  103.139.156.142 (103.139.156.142)  13.973 ms  14.062 ms  14.489 ms
+ 3  103.139.156.141 (103.139.156.141)  23.208 ms  23.219 ms  26.620 ms
+ 4  103.42.72.34 (103.42.72.34)  46.791 ms  46.776 ms  46.760 ms
+ 5  * * *
+ 6  142.250.228.186 (142.250.228.186)  32.184 ms 142.251.49.218 (142.251.49.218)  28.109 ms 142.251.55.62 (142.251.55.62)  25.946 ms
+ 7  108.170.253.105 (108.170.253.105)  25.884 ms 108.170.253.106 (108.170.253.106)  35.950 ms 142.251.60.187 (142.251.60.187)  23.798 ms
+ 8  maa05s28-in-f14.1e100.net (142.250.205.238)  27.270 ms  27.457 ms 74.125.242.129 (74.125.242.129)  24.770 ms
+	
+	
+	
+ping google.com --> ping is , to check whether remote server working or not , it's used to check the remote network connections 	
+	
+
+
+
+--------
+history command
+
+history
+history -c
+
+To delete the last 10 commands from your shell history
+
+history -d $(history | tail -n 5 | awk '{print $1}' | tr '\n' ' '); history -w
+
+
+
+--------
+
+text editors commands :
+----------- 
+ vi or vim 
+ nano  
+  
+  
+vim editor 
+vim file
+i or insert key -> insert mode
+esc -> command mode
+esc -> :q! -> exit  without saving the file
+esc  -> :wq! -> to save and exit from the file 
+esc -> shift +zz -> to save and exit from the file
+
+--
+Normal Mode Commands:
+Moving the Cursor:
+
+h: Move cursor left
+j: Move cursor down
+k: Move cursor up
+l: Move cursor right
+Example: Press h to move the cursor left.
+
+Navigation:
+
+w: Move to the beginning of the next word
+b: Move to the beginning of the previous word
+gg: Move to the beginning of the file
+G: Move to the end of the file
+Ctrl + u: Move half a page up
+Ctrl + d: Move half a page down
+Example: Press w to move to the beginning of the next word.
+
+Editing:
+
+i: Enter insert mode before the cursor
+a: Enter insert mode after the cursor
+o: Open a new line below the current line and enter insert mode
+O: Open a new line above the current line and enter insert mode
+x: Delete the character under the cursor
+dd: Delete the current line
+yy: Copy the current line
+p: Paste the copied or deleted text after the cursor
+u: Undo
+Ctrl + r: Redo
+Example: Press i to enter insert mode before the cursor.
+
+Search and Replace:
+
+/pattern: Search for a pattern
+
+Example: Type /pattern and press Enter to search for a pattern.
+
+n: Move to the next occurrence of the search pattern
+N: Move to the previous occurrence of the search pattern
+:s/old/new/g: Replace all occurrences of "old" with "new" in the current line
+:%s/old/new/g: Replace all occurrences of "old" with "new" in the entire file
+
+
+
+Saving and Quitting:
+
+:w: Save changes
+:q: Quit
+:wq or ZZ: Save and quit
+:q!: Quit without saving
+
+Example: Type :wq and press Enter to save and quit.
+
+Visual Mode Commands:
+
+Entering Visual Mode:
+
+v: Start character-wise visual mode
+V: Start line-wise visual mode
+Ctrl + v: Start block-wise visual mode
+Example: Press v to enter character-wise visual mode.
+
+Selecting Text:
+
+Once in visual mode, use arrow keys or navigation commands to select text.
+Example: In visual mode, move the cursor to select text.
+
+Copy, Cut, and Paste in Visual Mode:
+
+After selecting text in visual mode, press y to copy (yy for the whole line), d to cut, and p to paste.
+
+Example: In visual mode, press y to copy selected text.
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+IMP COMMANDS 
+-------------------------------------------------------------------------------------------------------------------------------
+cut : 
+
+The main use of cut command to split/trim the lines in a file.
+
+based on characters/bytes/Delimiter
+
+1 character = 1 byte , same -c or -b 
+
+fields or  Delimiter( Delimiters are characters or sequences of characters used to separate or define boundaries between different pieces of text or data ex: 
+
+Comma (,) Delimiter: Often used to separate items in a list, typically in CSV (Comma-Separated Values) files.
+
+Whitespace Delimiter: Spaces, tabs, or line breaks used to separate words or fields in text data.
+
+Tab (\t) Delimiter: Used to separate columns in tab-delimited files.
+
+Colon (:) Delimiter: Frequently used in configuration files or to separate key-value pairs.
+
+Semicolon (;) Delimiter: Used in CSV files in some regions as an alternative to a comma.
+
+Pipe (|) Delimiter: Often used to separate fields in data files, such as in the context of Unix pipelines.
+
+Hyphen (-) Delimiter: Used in compound words or as a range separator, e.g., "a-b" or "2010-2020."
+
+Underscore (_) Delimiter: Frequently used in variable and function names in programming.
+
+Forward Slash (/) Delimiter: Used in file paths and URLs to separate directories and components.
+
+Backslash (\) Delimiter: Typically used as an escape character in many programming languages and regular expressions.
+
+Hash (#) Delimiter: Often used to denote comments in code or configuration files.
+
+Double Quotation Marks (") Delimiter: Used to enclose strings, especially in CSV files to handle values containing other delimiters.
+
+Apostrophe (') Delimiter: Used to enclose single characters or strings.
+
+Parentheses (()) Delimiter: Used to group expressions in mathematics and programming.
+
+Braces ({}) and Brackets ([]) Delimiters: Used to enclose blocks of code or define arrays and sets in programming.
+
+Angle Brackets (<>) Delimiters: Often used in HTML to enclose tags.
+
+---
+
+cat file1.txt
+
+hello world
+hi, jhon 
+
+cut -c 5 file1.txt   ->  ( -c -> character 5 -> 5th character in the line, so it displays the 5th character of eachlines in a file  )
+
+cut -c 1-5 file1.txt  -> it display the character from 1st character to 5th character of  each lines 
+
+cut -c 1,3-5 file1.txt  -> it display the character from 1st character, skip the 2nd character  and take 3rd character to 5th character of  each lines , ( 1st,3rd,4th,5th of each lines in a file)
+
+cut -c 3- file1.txt --> it display the character from 3rd character to last character of  each lines 
+
+cut -c -3 file1.txt --> it display the first 3  characters  of  each lines 
+
+---
+delimiter 
+
+1,a,20
+2,a,40
+3,a,60
+
+cut -c 5 file1.txt
+
+cut -d "," -f1 <filename>  --> it cuts the first column and displays . ( -f -> field/column )
+
+1
+2
+3
+
+---
+1-a-20
+2-a-40
+3-a-60
+
+cut -d "-" -f1 <filename>
+1
+2
+3
+
+---
+1,a,20
+2,a,40
+3,a,60
+
+cut -d "," -f1-2 <filename>  --> it cuts the first 2 column and displays them , used to cut the range of fields  ( -f -> field/column )
+
+1,a
+2,a
+3,a
+---
+root@manjunathachar-k-t:~/bashdemo# ll -h
+total 92K
+drwxr-xr-x  3 root root 4.0K Oct 22 17:16 ./
+drwx------ 19 root root 4.0K Oct 22 17:16 ../
+-rwxr-xr-x  1 root root  349 Oct 22 17:16 case1.sh*
+-rwxrwxrwx  1 root root  320 Oct 22 17:11 case.sh*
+-rw-r--r--  1 root root   83 Oct 11 09:55 file1.txt
+-rwxrwxrwx  1 root root  184 Oct 22 13:36 grep.sh*
+-rw-r--r--  1 root root   17 Oct 10 10:31 hardlinkorg2.txt
+-rw-r--r--  1 root root  162 Oct 22 15:39 mem.txt
+drwxr-xr-x  2 root root 4.0K Oct 10 10:07 mywebapp/
+-rw-r--r--  1 root root  10K Oct 10 10:08 mywebartifact.tar
+-rw-r--r--  1 root root    4 Oct 21 16:30 ouputdir1.txt
+-rwxr-xr-x  1 root root  102 Oct 16 10:22 samplearray.sh*
+-rwxr-xr-x  1 root root   77 Oct 16 10:25 sampleshell.sh*
+lrwxrwxrwx  1 root root    8 Oct 10 10:29 soft2.txt -> org1.txt
+lrwxrwxrwx  1 root root    8 Oct 10 10:29 softlink.txt -> org1.txt
+-rwxrwxrwx  1 root root 2.7K Oct 21 15:30 tools.sh*
+-rw-r--r--  1 root root  688 Oct 20 22:14 unistalltool.sh
+-rwxr-xr-x  1 root root   37 Oct 12 10:05 var1.sh*
+-rwxrwxrwx  1 root root  123 Oct 12 10:15 var2.sh*
+-rwxrwxrwx  1 root root   54 Oct 12 10:28 var3.sh*
+-rwxrwxrwx  1 root root   70 Oct 13 09:51 var4.sh*
+---x--x--x  1 root root  392 Oct 13 10:01 var5.sh*
+-rwxr-xr-x  1 root root  530 Oct 13 10:23 var6.sh*
+
+
+ll -h | cut -d "," -f6 
+
+ll -h | awk '{print $5, $9}'   --> to display only 6th and 9th fields ) 
+
+ls -h | awk '{printf "%-15s %s\n", $1,$3, $9}'   -->  to display only 5th and 9th fields with proper format using printf ) 
+
+ls -l | awk '{printf "%-15s %-15s %s\n", $1,$3,$9}
+
+ll -h | awk '{printf "%-6s %s\n", $5, $9}'> filesize.txt 
+
+ll -h | awk '{print $6, $9}' |sed '/^$/d'    --> using caret(care-it) ^ $ to remove the spaces or empty lines  among lines in a file 
+ll -h | awk '{print $6, $9}' | grep -v ^$   
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+find :
+
+man find
+
+find command is used to search and locate the list of files and dir based on conditions you specify for files that match the arguments. find can be used in a variety of conditions like you can find by permissions, users, groups, file type, date, size , etc ...
+
+You can learn about the find command and its options.
+
+
+options :
+1) -name   --> file1. --> to search a file in any dir and whether the file exist or not in local machine 
+
+
+2) -iname
+3) -type f
+4) -type d
+
+--------------------
+
+how this command works 
+
+ex: you want to search a file in your system 
+
+syntax :
+
+find path options 
+
+find   --> this command will list complete path of file and directory in particular dir or system .
+
+find . -name var.sh
+options :
+
+1) -name    --> 
+
+find . -name var.sh    --> 
+
+find . -name "*.sh" 
+
+find / -name "*.pem"  
+
+find / -name context.xml 
+
+
+2) -iname   --> i means  ignore the case sensitive / case insensitive or it considers the uppercase and lower case 
+
+3) -type f   --> to display the regular files 
+
+find . -type f 
+
+----
+1. How to find or search  the last( past) 7 days modified files ?
+
+-mtime --> using this argument we list the last modified files 
+
+-  -> To list files modified within the last 7 days (including today), you can use the -mtime option with -7 ( ex : 27 th-20th)
+
+find . -mtime -7
+
+
++   -> To list files modified between 7 days and 14 days ago but but not within or the last 7 days,  (e.g., files modified from the 7th day to the 14th day ago) ( ex : 20 th -->  13th)  
+
+find . -mtime +7
+
+
+2. How to find the last 60 days modifiled files or created files 
+
+find . -mtime -60
+
+
+3. how to find only hidden regular files 
+
+find . -type f -name '.*'
+
+
+------
+du -> disk usage of file or dir 
+
+df  -> disk usage of file system 
+
+
+3 ways to find the large file in the system 
+
+1.find /home/manjunathachar -type f -exec du -h {} + | sort -rh | head -n 1     -> to find the largest file in the linux
+
+2.sudo du -h /home | sort -rh | head -n 1   -> to find the largest file in the linux
+
+find /home/manjunathachar -type f -exec du -h {} + | sort -h | head -n 1      -> to find the smallest file in the linux
+
+rm /path/to/folder/*.txt      			 -> Delete files using wildcards (e.g., all files with a specific extension):
+
+3. (NCurses Disk Usage):ncdu - >>> more advanced tool for analyzing disk usage of files/folders on local server . It provides a more interactive and user-friendly way to find large files and directories.
+
+sudo apt-get install ncdu   # For Debian/Ubuntu
+sudo yum install ncdu       # For Fedora/CentOS/Red Hat
+
+ncdu /home  
+ncdu -e
+
+find . -inum 34872
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+man grep
+
+GREP COMMAND
+
+global regular expression print
+
+basically it searches for a word and print or display the content , according to the option which you have used .
+
+it's going to search a file, content file based pattern 
+
+filter the content of a file
+
+syntax :
+
+grep "searchword" filename
+
+grep is mostly used with piping ( | ).
+
+create file with some content
+apple is my favorite
+my favorites fruits apple ,mango,durian,
+tomato
+chilli
+grapes
+Apple is good for the health
+I eat 4 AppleS in a week .
+
+
+root@manjunathachar-k-t:~/bashdemo# cat grep.sh | grep apple
+apple is my favorite
+my favorites fruits apple ,mango,durian,
+root@manjunathachar-k-t:~/bashdemo# grep apple grep.sh 
+apple is my favorite
+my favorites fruits apple ,mango,durian,
+
+grep -i "apple" grep.sh    --> to search a words with case insensitive or ignore the case sensitive 
+
+grep -v "apple" grep.sh    ->  to display the words which not matching with "apple"  ,
+
+grep -c "apple" grep.sh     -->  to display the counts of line of the word, 
+
+grep -o "apple" grep.sh   --> to display the match words only ( not  with entire lines ) .
+
+grep -n "apple" grep.sh   --> to display the the words with their line numbers  
+
+grep -A1 "apple" grep.sh   --> to display the specific word line with next line only
+
+grep -B1 "apple" grep.sh   ---> to display the specific word line with previous line 
+
+grep -C3 "apple" grep.sh   ---> to display the specific word line with previous line and next line
+
+-------------------------------------------------------------------------------------------------------------------------------
+awk command -> https://www.youtube.com/watch?v=CnfQxD9aNVs
+
+this command is very important for scripting .
+
+Syntax :
+
+awk ‘BEGIN {start_action} {action} END {stop_action}’ filename
+
+
+awk '{print }' filename 
+
+ls -l | awk '{print $1 $3}'
+
+let me explain about awk command with simple examples
+
+Example 1:
+
+How to print entire  data of the file
+
+cat filename | awk '{print}'
+cat filename | awk '{print$0}'
+
+both "awk '{print}' and awk '{print$0}' " used to print entire data
+
+
+Example 2:
+
+How to print  very first column
+
+cat filename |  awk '{print$1}'     --> to display the first columns 
+
+awk '{print$1}' filename  --> used to print very first column  
+awk '{print$2}' file name -->  used to print second column   --> to print specific multiple columns at a time
+
+awk '{print$2,$3,$4}'   --> used to print 2nd,3rd,4th columns   --> to print specific multiple columns at a time
+
+
+Example 3:
+
+How to print pattern Matching Technique in Awk.
+
+free -m | awk '/Mem/{print}'   --> to print the Mem row 
+
+
+here, we are matching Mem using awk '{/Mem/print}'
+
+Example 4:
+
+How to Print multiple column at the time.
+
+free -h | awk '/Mem/{print$1,$2,$4}'    
+
+here, we are print 1st,2nd,3rd columns at the time.
+
+Example 5:
+
+How to Print line number using variable NR
+
+free -h | awk '{print NR,$0}'
+
+Example 6:
+
+How to print specific linesF
+
+free -h | awk '{print NR,$0}'   --> to print the line with system variables ( NR -> Number of records )
+
+free -h | awk 'NR==1,NR==2 {print NR,$0}'   --> to print the lines from line1 to  line3 with variables 
+
+Here,we are print lines between 1 & 2.
+
+Real time
+
+ll -lrth | awk '{print$9}'       --> to print the specific columns of files ( l- list ,r- reverse , t- time , h- human readable )
+
+ll -lrth | awk '{print$1,$9}'  -->  to print the specific columns of files and their permission ( l- list ,r- reverse , t- time , h- human readable                       
+
+Filter data manipulation
+
+cat listofusers.txt | awk '$4~/M/'
+
+
+cat listofusers.txt | awk '{print NF}'    -> This command prints the value of the last field in each line.
+
+
+cat listofusers.txt | awk '{print (NF-1)}' //second last coloum in a file 
+
+-------------------------------------------------------------------------------------------------------------------------------
+sed   --> https://www.youtube.com/watch?v=ERoQssdqu18&list=RDCMUCBykMQqQ0q7GsC-u-YPimBA&index=2
+
+It used to replacing,searching,delete,insert data & also is mostly used command in scripting
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+sed (stream editor) command  -> you have file with 10 files , the lines start with DOG , you want replace DOG with BAT 
+
+sed  's/dog/bat/g' file2.txt           ( to make one time changes in the file)
+sed -i 's/dog/bat/g' file2.txt          ( -i used to make permanent changes in the file)
+
+
+
+============================
+
+config 
+
+
+
+
+
+
+
+
+
+
+
+
+
+manjunathachar@manjunathachar-k-t:~/linuxdemo$ cat file2.txt 
+my sample file 2
+apple
+ball
+cat 
+dog
+egg
+dog
+dog
+man
+flower
+dog
+watch
+mobile
+macbook
+iphone
+
+
+manjunathachar@manjunathachar-k-t:~$ sed -i 's/dog/bat/g' file2.txt
+manjunathachar@manjunathachar-k-t:~$ cat s1.txt 
+dkdk
+baetc
+etc
+line
+etcort
+long
+break 
+etc
+etc
+etc
+----------------------------
+systax 
+
+sed OPTIONS... [SCRIPT] [INPUTFILE...] 
+
+Example:1
+
+How to replace word with another word name.
+
+cat nagios.txt | sed 's/Nagios/nagios/'
+
+here,we replaced Nagios with nagios 
+
+Example:2
+How to replace word with another word name using global variable.
+
+cat nagios.txt | sed 's/Nagios/nagios/g'
+
+here,we replaced Nagios with nagios all places
+
+Example:3
+How to replace word with another word name nth line.
+
+cat nagios.txt | sed 's/Nagios/nagios/'2g'
+
+here,we replaced Nagios with nagios up to second line
+
+Example:4
+How to replace word with another word name in specific line.
+
+cat nagios.txt | sed '2 s/Nagios/nagios/'
+
+here,we replaced Nagios with nagios in second line only
+----------------------------------------
+
+How to delete lines from a particular file.
+
+1.To Delete a particular line say n in this example
+
+Syntax:
+$ sed 'nd' filename.txt
+
+Example:
+$ sed '2d' filename.txt   -> here,we are deleting 2nd line.
+
+
+
+2. To Delete a last line
+
+Syntax:
+$ sed '$d' filename.txt       -> here,we are deleting last line.
+
+
+3. To Delete line from range x to y
+
+Syntax:
+$ sed 'x,yd' filename.txt
+Example:
+$ sed '3,6d' filename.txt          -> here, we are deleting between 3rd and 6th line. 
+
+
+
+4. To Delete from nth to last line
+
+Syntax:
+$ sed 'nth,$d' filename.txt
+Example:
+$ sed '12,$d' filename.txt       -> here, we are deleting between 12th line to last line.
+
+
+5. To Delete pattern matching line
+
+Syntax:
+$ sed '/pattern/d' filename.txt
+Example:
+$ sed '/abc/d' filename.txt                     --> here,we are deleting abc word.
+
+
+
+---------------------------------------
+
+How to add pdf at the end of the file
+
+cat numbers.txt | xargs -r |sed 's/ /.pdf /g'      --> 
+
+========================================================================================================================
+
+Soft Links (Symbolic Links) and Hard Links:
+
+
+/bin/ -> /home/  
+
+
+
+
+Soft Links (Symbolic Links):
+
+Soft links have different inode numbers because they are essentially separate files that point to the target file's path. They are symbolic references.
+
+1. Managing Configurations:
+
+Use soft links to manage configuration files centrally. For example, you have a common configuration file for an application, and each deployment environment requires a slightly different configuration. You can create soft links to the common configuration file in each environment.
+
+
+ln -s /path/to/common/config.conf /path/to/environment/config.conf
+
+2. Versioning and Rollbacks:
+
+Soft links can be used in versioning and rollback scenarios. For instance, you deploy a new version of your application, and the latest configuration is linked to a specific version. If there are issues, rolling back involves switching the soft link back to the previous version.
+bash
+
+ln -s /path/to/versions/v2.0/config.conf /path/to/current/config.conf
+
+3. Dependency Management:
+
+When working with software dependencies, you might use soft links to manage libraries or modules. For example, a deployment might require a specific version of a library, and a soft link can be created to the appropriate version.
+
+ln -s /path/to/libraries/libv1.2.so /path/to/application/lib/lib.so
+
+----
+
+Hard Links:
+
+Hard links, on the other hand, share the same inode number with the original file. They reference the same data blocks on the disk, and changes made to one file are reflected in all files linked to the same inode.
+
+
+1. Efficient Data Backups:
+
+Hard links can be useful for creating efficient backups. Instead of duplicating entire files, hard links can be created to the existing files. This ensures that changes to one file are reflected in the other, while saving storage space.
+
+ln /path/to/source/file.txt /path/to/backup/file_backup.txt
+
+
+2. Shared Log Files:
+
+In a distributed system where multiple components need to write to the same log file, hard links can be used to share the same physical file on disk, providing a unified log view.
+
+ln /var/log/application.log /var/log/component1.log
+ln /var/log/application.log /var/log/component2.log
+
+3. Managing Identical Content:
+
+Hard links are useful when you have multiple instances of identical files across your system. Instead of having multiple copies, hard links allow different filenames to point to the same data blocks.
+
+ln /path/to/common/file.txt /path/to/another/location/file_alias.txt
+
+-----
+
+softlink and hardlink files
+
+
+ls -i file1 file2     -> to get  i nodes for particular files 
+
+find . -inum 12345 -delete    -> deleting files using i node values 
+
+
+
+org1.txt
+
+ln -s org1.txt softlink.txt        -> to create soft link for org1.txt, as soon as u delete the org1 file , softlink file also be  deleted automatically
+
+org2.txt
+
+ln org2.txt hardlink.txt             -> to create hardlink for org2.txt, as soon as u delete the org2 file and hard link will be remain same, it's link copy of org2 file and used for back up for secretes 
+
+----
+cronjob
+
+A cron job is a scheduled task or command that runs automatically at specified intervals on a Unix or Unix-like system, such as Linux. It is used for automating repetitive tasks, such as backups, updates, and maintenance.
+
+
+Crontab:It is used to Schedule jobs.
+
+Crontab –l: -l is used to List out the job for current user.
+
+Crontab –e:-e is used to edit schedule jobs for current user. 
+
+Crontab –r:-r is used to remove all job for current user.      -> note : Don't try this command until unless remove jobs.
+
+Crontab –e –u <Username> : It is used to edit jobs for particular user. 
+
+
+Cat /etc/crontab : It used to check cron job info.
+
+*/1 * * *  * /root/cpu.sh >> output.txt   
+
+   *             *               *                    *            *
+Minute         Hour         Day of month             Month      Day of week  
+(0 - 59)     (0 - 23)         (1 - 31)              (1 - 12)     (0 -6 ) ( sun =0 or 7)
+ 
+ 
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  . ------- month (1 - 12) OR Jan, feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR 
+# |  |  |  |  |
+# *  *  *  *  *    -> time pattern 
+
+Be practice below examples which are very useful in real time environment.
+
+*/1 – Every one minute 
+*/1-   Every one hour
+1-31 Day of the month
+1-12(Jan to Dec)
+0-6(Sunday to Monday) 0Sunday, 1Monday, 2Thesday
+
+
+*  *   * * *    -> for every minutes
+0  *   * * *    -> for every hour 0th min
+0 12   * * *    -> @12 pm(noon) every day
+0  0   8 * *    ->  every month 8th day
+0  3   * * 0    ->  Every sunday
+0 7-18 * * *    ->  b/w 7am to 6 pm
+0 5,8,12 * * *  ->  @5,8,12 
+*/5 * * * *    -> every 5 min interval 
+
+Every day 7-18
+* 7-18 * * *  /root/cpu.sh 
+
+Every month 15,16 dates
+* * 15,16 * *  /root/cpu.sh 
+
+6 Month one time only
+* * * 6 *  /root/cpu.sh 
+Every Tues day
+* * * * 2  /root/cpu.sh 
+
+0
+
+Scheduled Script Execution:  -> Running a script periodically.
+
+# Edit the crontab
+crontab -e
+
+# Run a script every day at 2 AM
+0 2 * * * /path/to/script.sh
+
+
+System Updates:   ->  Automatically updating the system or packages.
+
+# Update system packages every Sunday at 3 AM
+0 3 * * 0 yum update -y
+
+Backup Database:  -> Scheduled backup of a database.
+
+# Backup MySQL database every day at 1 AM
+0 1 * * * /path/to/mysqldump -u username -p password dbname > /path/to/backup.sql
+
+Cleanup Temporary Files:  -> Cleaning up temporary files.
+
+# Cleanup temp files every week on Sunday at 4 AM
+0 4 * * 0 find /path/to/temp -type f -mtime +7 -exec rm {} \;
+
+
+ex:
+
+=============
+useradd -m -d /home/devopsadmin devopsadmin
+
+passwd devopsadmin
+
+su - devopsadmin
+
+ssh-keygen    
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_rsa - private key
+#id_rsa.pub - public
+
+cd /home/devopsadmin/.ssh
+
+cat id_rsa.pub > authorized_keys
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+#make devopsadmin user as a owner to tomcat dir :
+
+chown -R devopsadmin /opt/tomcat
+
+/home/devopsadmin	
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+SHELL SCRIPTING :-
+
+shell -> Command line interpreter , Program, interface between user and  kernel , scripting language , used for terminal commands , easy to write , it's a main component in linux os 
+
+
+compiler and interpreter 
+
+
+program which converts high level language to machine code  lower language ( 0 , 1 )
+
+
+ebs ->  snapshot 
+
+
+python 
+
+             compiling phase                         executing phase 
+source code --------------------  compiler      -----------------------         jvm, pvm 
+             line by line        compiled code                                  
+                                 pyc - bytecode                                  convert the bytecode into machine understanble lan, human understand language 
+
+
+
+
+commands     ->        shell   ---->    hard ware components                            
+
+ls   - l                            
+
+
+
+
+
+
+
+
+
+
+A.BASH SCRIPTING 
+
+"Shell" is a program, which facilitates the interaction between the user and operating system (kernel). There are many shells available in linux by default like sh, bash, csh, zsh ,rbash, dash...etc.
+
+ 1) "Shell" scripting is a way of automating things, in the form of collection of commands. The control of execution is steered by the predefined control statements.
+
+2) "Bash shell" scripting is, a kind of shell scripting only. You can say, its a subset of "shell" scripting.
+
+3) "sh" is the original (Bourne) shell, having its root from the old Unix. "bash", is "Bourne Again SHell", which is rewritten "sh".
+
+4) Bash is the most widely used shell. It comes with Linux by default, having backward compatibility with sh (though sh is also there). But, you can choose any shell you want.
+
+ 5) For more information, do:
+ 
+$~ man bash
+
+shell scripting : 
+
+
+filename.xlsx 
+
+filename.txt
+filename.doc
+filname.gz
+
+filename.sh
+
+
+
+
+
+.sh  --> it's not mandatory , but we are going to specify the file , without using .sh u can run the script . for other language files, the extension is mandatory
+.java
+.py
+.rb -> ruby
+.sc  -> scaller
+.c
+.cpp  -> c++
+.go  --> go language
+.js  --> nodejs
+
+
+java  filname.java
+
+python  filname.py
+
+node    filename.js
+
+--------
+
+
+to see the current shell
+
+variables 
+
+system pre defined /env  variables  ex: $USER , $SHELL , $PATH , 
+user defined variables   -> JAVA_HOME , MAVEN_HOME , 
+
+system pre defined commands  -> ls , echo , ll , who , last , id -u , 
+system pre defined arguments / special variable in linux   , $0 , $1, $#,$@,$?, $$, 
+
+
+echo $USER
+
+env or printenv
+
+
+echo $0   -> on terminal -> to display the current shell   
+
+$0 arg inside script is consider as value of the script name 
+
+ps -p $$
+
+echo $SHELL
+--
+
+why we need to learn shell scripting
+
+Automate your regular jobs, or to avoid manual tasks
+
+Taking database backup
+
+monitoring several server resources like cpu utilization and memory utilization
+
+Portable( it can be executed in any unitxl like operating system without any mdificatins )
+
+
+let's talk about some popular database
+
+Relational databases
+---------------------
+Oracle
+MySQL --> oss
+Postgre SQL  --> oss
+MS SQL server
+DB2 --IBM
+
+
+
+non-relational or no sql databases
+------------------------------
+mongo db
+cloudant
+casandra
+
+
+DIFF BETWEEN relational database and non relational database
+
+relational database:
+
+data which stored in structured format , like in terms rows and columns 
+
+stored in the tables format
+
+No sql datase:
+
+no table
+data is stored in document
+
+key value pair , in json format or yaml format 
+
+how can you choose the database
+
+for MYSQL(relational database) -> it is for big data, for more updatation , modificatins
+
+
+for no sql database --> if your applicatin is very small, you want to display some products , where you dont want update , insert , delete the data, where you can use NO SQL database. 
+
+as devops , u should know , how to install the database and manipulate database using some basic queries . 
+
+as a DBA --> DATABASE ADMIN--> has to take backup of database for hourly basis .
+
+
+--
+interview question:
+
+which scripting language do you know ?
+
+shell scripting
+
+can you tell me some of scripting which you created ?
+
+dbbackup.sh 
+
+do you know sql queries ?
+
+if you know , say yes, or i have no idea, but i know the installation process, creating shell scripts, coz , my dba ask me to write a script for database backcup , i created .
+
+
+blob , git blob
+
+a=10
+print(a)
+
+varchar placename-pincode 
+----------
+---
+
+serverresourcesmonitor.sh 
+
+can you what will this script do ?
+
+monitor the server resources 
+cpu
+ram
+harddisk
+
+free
+df
+top
+
+mail  -> whenever threshold =80 , will get notification , 
+
+sed
+
+hostname -> whenever threshold =80 , will get notification ,
+ifconfig
+
+
+now a days , we are not going to use these kind of scripts, coz , we have dedicated monitoring tools, prometheus and grafana -> these tools can monitor the servers 
+
+
+
+deploy.sh 
+to deploy the application into the tomcat server . 
+
+cleanup.sh 
+
+to cleanup the server .
+find
+rm
+mail
+cronjob
+
+
+PRE REQUISITES FOR SHELL SCRIPTING
+
+LINUX/UNIX SERVER --> WINDOWS never works, even somebody ask that, i installed gitbash, mobexterm , but u cant use all commands , like shutdown , reboot. 
+
+
+Knowledge on linux commands with various options
 
 
 
