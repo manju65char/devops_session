@@ -1615,11 +1615,849 @@ sed (stream editor) command  -> you have file with 10 files , the lines start wi
 sed  's/dog/bat/g' file2.txt           ( to make one time changes in the file)
 sed -i 's/dog/bat/g' file2.txt          ( -i used to make permanent changes in the file)
 
+manjunathachar@manjunathachar-k-t:~/linuxdemo$ cat file2.txt 
+my sample file 2
+apple
+ball
+cat 
+dog
+egg
+dog
+dog
+man
+flower
+dog
+watch
+mobile
+macbook
+iphone
+
+
+manjunathachar@manjunathachar-k-t:~$ sed -i 's/dog/bat/g' file2.txt
+manjunathachar@manjunathachar-k-t:~$ cat s1.txt 
+dkdk
+baetc
+etc
+line
+etcort
+long
+break 
+etc
+etc
+etc
+----------------------------
+systax 
+
+sed OPTIONS... [SCRIPT] [INPUTFILE...] 
+
+Example:1
+
+How to replace word with another word name.
+
+cat nagios.txt | sed 's/Nagios/nagios/'
+
+here,we replaced Nagios with nagios 
+
+Example:2
+How to replace word with another word name using global variable.
+
+cat nagios.txt | sed 's/Nagios/nagios/g'
+
+here,we replaced Nagios with nagios all places
+
+Example:3
+How to replace word with another word name nth line.
+
+cat nagios.txt | sed 's/Nagios/nagios/'2g'
+
+here,we replaced Nagios with nagios up to second line
+
+Example:4
+How to replace word with another word name in specific line.
+
+cat nagios.txt | sed '2 s/Nagios/nagios/'
+
+here,we replaced Nagios with nagios in second line only
+----------------------------------------
+
+How to delete lines from a particular file.
+
+1.To Delete a particular line say n in this example
+
+Syntax:
+$ sed 'nd' filename.txt
+
+Example:
+$ sed '2d' filename.txt   -> here,we are deleting 2nd line.
+
+
+
+2. To Delete a last line
+
+Syntax:
+$ sed '$d' filename.txt       -> here,we are deleting last line.
+
+
+3. To Delete line from range x to y
+
+Syntax:
+$ sed 'x,yd' filename.txt
+Example:
+$ sed '3,6d' filename.txt          -> here, we are deleting between 3rd and 6th line. 
+
+
+
+4. To Delete from nth to last line
+
+Syntax:
+$ sed 'nth,$d' filename.txt
+Example:
+$ sed '12,$d' filename.txt       -> here, we are deleting between 12th line to last line.
+
+
+5. To Delete pattern matching line
+
+Syntax:
+$ sed '/pattern/d' filename.txt
+Example:
+$ sed '/abc/d' filename.txt                     --> here,we are deleting abc word.
+
+
+
+---------------------------------------
+
+How to add pdf at the end of the file
+
+cat numbers.txt | xargs -r |sed 's/ /.pdf /g'      --> 
+
+========================================================================================================================
+
+Soft Links (Symbolic Links) and Hard Links:
+
+
+/bin/ -> /home/  
+
+
+
+
+Soft Links (Symbolic Links):
+
+Soft links have different inode numbers because they are essentially separate files that point to the target file's path. They are symbolic references.
+
+1. Managing Configurations:
+
+Use soft links to manage configuration files centrally. For example, you have a common configuration file for an application, and each deployment environment requires a slightly different configuration. You can create soft links to the common configuration file in each environment.
+
+
+ln -s /path/to/common/config.conf /path/to/environment/config.conf
+
+2. Versioning and Rollbacks:
+
+Soft links can be used in versioning and rollback scenarios. For instance, you deploy a new version of your application, and the latest configuration is linked to a specific version. If there are issues, rolling back involves switching the soft link back to the previous version.
+bash
+
+ln -s /path/to/versions/v2.0/config.conf /path/to/current/config.conf
+
+3. Dependency Management:
+
+When working with software dependencies, you might use soft links to manage libraries or modules. For example, a deployment might require a specific version of a library, and a soft link can be created to the appropriate version.
+
+ln -s /path/to/libraries/libv1.2.so /path/to/application/lib/lib.so
+
+----
+
+Hard Links:
+
+Hard links, on the other hand, share the same inode number with the original file. They reference the same data blocks on the disk, and changes made to one file are reflected in all files linked to the same inode.
+
+
+1. Efficient Data Backups:
+
+Hard links can be useful for creating efficient backups. Instead of duplicating entire files, hard links can be created to the existing files. This ensures that changes to one file are reflected in the other, while saving storage space.
+
+ln /path/to/source/file.txt /path/to/backup/file_backup.txt
+
+
+2. Shared Log Files:
+
+In a distributed system where multiple components need to write to the same log file, hard links can be used to share the same physical file on disk, providing a unified log view.
+
+ln /var/log/application.log /var/log/component1.log
+ln /var/log/application.log /var/log/component2.log
+
+3. Managing Identical Content:
+
+Hard links are useful when you have multiple instances of identical files across your system. Instead of having multiple copies, hard links allow different filenames to point to the same data blocks.
+
+ln /path/to/common/file.txt /path/to/another/location/file_alias.txt
+
+-----
+
+softlink and hardlink files
+
+
+ls -i file1 file2     -> to get  i nodes for particular files 
+
+find . -inum 12345 -delete    -> deleting files using i node values 
+
+
+
+org1.txt
+
+ln -s org1.txt softlink.txt        -> to create soft link for org1.txt, as soon as u delete the org1 file , softlink file also be  deleted automatically
+
+org2.txt
+
+ln org2.txt hardlink.txt             -> to create hardlink for org2.txt, as soon as u delete the org2 file and hard link will be remain same, it's link copy of org2 file and used for back up for secretes 
+
+----
+cronjob
+
+A cron job is a scheduled task or command that runs automatically at specified intervals on a Unix or Unix-like system, such as Linux. It is used for automating repetitive tasks, such as backups, updates, and maintenance.
+
+
+Crontab:It is used to Schedule jobs.
+
+Crontab –l: -l is used to List out the job for current user.
+
+Crontab –e:-e is used to edit schedule jobs for current user. 
+
+Crontab –r:-r is used to remove all job for current user.      -> note : Don't try this command until unless remove jobs.
+
+Crontab –e –u <Username> : It is used to edit jobs for particular user. 
+
+
+Cat /etc/crontab : It used to check cron job info.
+
+*/1 * * *  * /root/cpu.sh >> output.txt   
+
+   *             *               *                    *            *
+Minute         Hour         Day of month             Month      Day of week  
+(0 - 59)     (0 - 23)         (1 - 31)              (1 - 12)     (0 -6 ) ( sun =0 or 7)
+ 
+ 
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  . ------- month (1 - 12) OR Jan, feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR 
+# |  |  |  |  |
+# *  *  *  *  *    -> time pattern 
+
+Be practice below examples which are very useful in real time environment.
+
+*/1 – Every one minute 
+*/1-   Every one hour
+1-31 Day of the month
+1-12(Jan to Dec)
+0-6(Sunday to Monday) 0Sunday, 1Monday, 2Thesday
+
+
+*  *   * * *    -> for every minutes
+0  *   * * *    -> for every hour 0th min
+0 12   * * *    -> @12 pm(noon) every day
+0  0   8 * *    ->  every month 8th day
+0  3   * * 0    ->  Every sunday
+0 7-18 * * *    ->  b/w 7am to 6 pm
+0 5,8,12 * * *  ->  @5,8,12 
+*/5 * * * *    -> every 5 min interval 
+
+Every day 7-18
+* 7-18 * * *  /root/cpu.sh 
+
+Every month 15,16 dates
+* * 15,16 * *  /root/cpu.sh 
+
+6 Month one time only
+* * * 6 *  /root/cpu.sh 
+Every Tues day
+* * * * 2  /root/cpu.sh 
+
+0
+
+Scheduled Script Execution:  -> Running a script periodically.
+
+# Edit the crontab
+crontab -e
+
+# Run a script every day at 2 AM
+0 2 * * * /path/to/script.sh
+
+
+System Updates:   ->  Automatically updating the system or packages.
+
+# Update system packages every Sunday at 3 AM
+0 3 * * 0 yum update -y
+
+Backup Database:  -> Scheduled backup of a database.
+
+# Backup MySQL database every day at 1 AM
+0 1 * * * /path/to/mysqldump -u username -p password dbname > /path/to/backup.sql
+
+Cleanup Temporary Files:  -> Cleaning up temporary files.
+
+# Cleanup temp files every week on Sunday at 4 AM
+0 4 * * 0 find /path/to/temp -type f -mtime +7 -exec rm {} \;
+
+
+ex:
+
+=============
+useradd -m -d /home/devopsadmin devopsadmin
+
+passwd devopsadmin
+
+su - devopsadmin
+
+ssh-keygen    
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_rsa - private key
+#id_rsa.pub - public
+
+cd /home/devopsadmin/.ssh
+
+cat id_rsa.pub > authorized_keys
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+#make devopsadmin user as a owner to tomcat dir :
+
+chown -R devopsadmin /opt/tomcat
+
+/home/devopsadmin	
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+SHELL SCRIPTING :-
+
+shell -> Command line interpreter , Program, interface between user and  kernel , scripting language , used for terminal commands , easy to write , it's a main component in linux os 
+
+
+compiler and interpreter 
+
+
+program which converts high level language to machine code  lower language ( 0 , 1 )
+
+
+ebs ->  snapshot 
+
+
+python 
+
+             compiling phase                         executing phase 
+source code --------------------  compiler      -----------------------         jvm, pvm 
+             line by line        compiled code                                  
+                                 pyc - bytecode                                  convert the bytecode into machine understanble lan, human understand language 
+
+
+
+
+commands     ->        shell   ---->    hard ware components                            
+
+ls   - l                            
+
+
+
+
+
+
+
+
+
+
+A.BASH SCRIPTING 
+
+"Shell" is a program, which facilitates the interaction between the user and operating system (kernel). There are many shells available in linux by default like sh, bash, csh, zsh ,rbash, dash...etc.
+
+ 1) "Shell" scripting is a way of automating things, in the form of collection of commands. The control of execution is steered by the predefined control statements.
+
+2) "Bash shell" scripting is, a kind of shell scripting only. You can say, its a subset of "shell" scripting.
+
+3) "sh" is the original (Bourne) shell, having its root from the old Unix. "bash", is "Bourne Again SHell", which is rewritten "sh".
+
+4) Bash is the most widely used shell. It comes with Linux by default, having backward compatibility with sh (though sh is also there). But, you can choose any shell you want.
+
+ 5) For more information, do:
+ 
+$~ man bash
+
+shell scripting : 
+
+
+filename.xlsx 
+
+filename.txt
+filename.doc
+filname.gz
+
+filename.sh
+
+
+
+
+
+.sh  --> it's not mandatory , but we are going to specify the file , without using .sh u can run the script . for other language files, the extension is mandatory
+.java
+.py
+.rb -> ruby
+.sc  -> scaller
+.c
+.cpp  -> c++
+.go  --> go language
+.js  --> nodejs
+
+
+java  filname.java
+
+python  filname.py
+
+node    filename.js
+
+
 
 
 ============================
 
-config 
+
+
+BASH SCRIPT ASSIGNMENTS 
+
+1. Check if input is "INPUT"
+Purpose: Accept input from the user, store it in a variable, and check its value to determine if it matches "INPUT."
+
+
+#!/bin/bash
+
+echo "Enter input:"
+read input
+
+if [[ "$input" == "INPUT" ]]; then
+    echo "Valid"
+else
+    echo "Invalid"
+fi
+Explanation:
+
+The script prompts the user for input.
+The read command stores the input in a variable.
+The if statement checks if the input matches "INPUT" and prints the appropriate message.
+
+2. Case statement to handle different exit codes
+Purpose: Handle and provide meaningful messages based on exit codes of the last executed command.
+
+
+#!/bin/bash
+
+# Simulate a command
+ls /nonexistent > /dev/null 2>&1
+exit_code=$?
+
+case $exit_code in
+    0)
+        echo "Success: Command executed successfully."
+        ;;
+    1)
+        echo "Error: General error occurred."
+        ;;
+    2)
+        echo "Error: Misuse of shell builtins."
+        ;;
+    *)
+        echo "Unknown: Exit code $exit_code."
+        ;;
+esac
+Explanation:
+
+A command (ls /nonexistent) is run, and its exit code is captured using $?.
+The case statement matches the exit code with predefined cases, providing appropriate messages for common exit codes.
+3. Redirect errors to error.log
+Purpose: Execute a command and redirect its error output to a log file.
+
+
+#!/bin/bash
+
+# Command that generates an error
+ls /nonexistent 2> error.log
+Explanation:
+
+2> redirects standard error (stderr) to a file named error.log.
+Any errors produced by ls /nonexistent will be stored in the file.
+4. Create a directory with restricted permissions
+Purpose: Create a directory and set permissions such that only the owner has read and write access.
+
+
+#!/bin/bash
+
+dir_name="secure_directory"
+
+mkdir "$dir_name"
+chmod 600 "$dir_name"
+echo "Directory '$dir_name' created with Read + Write permissions for the owner only."
+Explanation:
+
+mkdir creates the directory.
+chmod 600 sets permissions: owner can read/write, others have no access.
+5. List files and save names to filenames.txt
+Purpose: List all files in a specific directory and save their names to filenames.txt.
+
+bash
+Copy code
+#!/bin/bash
+
+dir="/path/to/directory"
+
+if [[ -d "$dir" ]]; then
+    ls "$dir" > filenames.txt
+    echo "File names saved to filenames.txt"
+else
+    echo "Directory does not exist."
+fi
+Explanation:
+
+The script checks if the specified directory exists using [[ -d ]].
+If the directory exists, ls lists its contents and redirects output to filenames.txt.
+
+6. Replace keys in a properties file
+Purpose: Read key-value pairs from a properties file and replace constants in a target file with actual values.
+
+Properties File (config.properties):
+
+
+username=admin
+password=secret
+url=http://example.com
+Target Script (replace.sh):
+
+
+#!/bin/bash
+
+properties_file="config.properties"
+target_file="template.txt"
+
+# Read properties file and replace keys in the target file
+while IFS='=' read -r key value; do
+    sed -i "s/{{$key}}/$value/g" "$target_file"
+done < "$properties_file"
+
+echo "Replacements completed in $target_file."
+Template File (template.txt):
+
+User: {{username}}
+Password: {{password}}
+URL: {{url}}
+Explanation:
+
+The script reads key-value pairs from config.properties.
+It uses sed to replace placeholders (e.g., {{username}}) in template.txt with actual values from the properties file.
+
+
+==================
+
+
+*********************************************************
+
+
+#!/bin/bash
+a="Team"
+echo "Hello $a"
+b="Hai"
+echo "Hello $b"
+echo "Hello $1 $2"
+sudo yum install vim -y
+
+
+*********************************************************
+
+# !/bin/bash
+num=150
+if [ $num -gt 100 ] && [ $num -lt 200 ]
+then
+        echo "The number lies between 100 and 200"
+fi
+
+*********************************************************
+
+# !/bin/bash
+
+if [ $# -ne 1 ]
+then
+        echo "You need to enter the year."
+        exit 1
+fi
+
+year=$1
+
+if [ $[$year % 400] -eq "0" ]
+then
+        echo "$year is a leap year!"
+elif [ $[$year % 4] -eq 0 ]
+then
+        if [ $[$year % 100] -ne 0 ]
+        then
+                echo "$year is a leap year!"
+        else
+                echo "$year is not a leap year."
+        fi
+else
+        echo "$year is not a leap year."
+fi
+
+
+*********************************************************
+
+# !/bin/bash
+Balance=900
+if ((Balance < 0)); then
+  echo "Balance is less than zero, Please add more funds else you will be charged penalty"
+elif ((Balance == 0)); then
+  echo "Balance is zero, please add funds"
+else
+  echo "Your balance is above zero."
+fi
+
+
+*********************************************************
+
+#!/bin/bash
+read -p "Enter theory marks: " quiz_marks
+read -p "Enter practical marks: " assignments_marks
+if (($quiz_marks > 50));
+then
+  echo "Please check the input marks for quiz."
+elif (($assignments_marks > 50));
+then
+  echo "Please check the input marks for assignments."
+else
+  echo " Your total marks: sum=$(( quiz_marks + assignments_marks))"
+fi
+
+
+*********************************************************
+Loops are used in any programming language to execute the same code repeatedly. Three types of loops are mainly used in programming for doing repetitive tasks. These are for, while, and do-while/repeat-until loop. You can apply for loop on bash script in various ways. Some useful BASH for loop examples has been mentioned in this article.
+
+Syntax of for loop:
+
+# loop through a list
+for value in list
+do
+    commands
+done
+
+# loop specified values
+for value in file1 file2 file3
+do
+    commands
+done
+
+# loop through strings resulting from a command
+for value in $(Linux command)
+do
+    commands
+done
+
+# loop through increment or decrement numbers
+# traditional procedural for loop
+for (( i=0; i<10; i++)
+do
+    commands
+done
+
+According to the above syntax, the starting and ending block of for loop is defined by do and done keywords in the bash script.
+
+Example-1: Reading static values
+Create a bash file named loop1.sh with the following script to read the values from a list using for loop. In this example, 5 static values are declared in the lists. This loop will iterate 5 times, and each time, it will receive a value from the lists and store it in the variable named color that will print inside the loop.
+
+
+#!/bin/bash
+# Define loop to read string values
+for color in Blue Green Pink White Red
+do
+    # Print the string value
+    echo "Color = $color"
+done
+
+
+Example-2: Reading Array Variable
+
+You can use for loop to iterate the values of an array. Create a new bash file named loop2.sh with the following script. In this example, the loop retrieves the values from an array variable named ColorList, and it will print the output only if the Pink value is found in the array elements.
+
+
+#!/bin/bash
+# Declare and array
+ColorList=("Blue Green Pink White Red")
+# Define loop to  iterate the array values
+for color in $ColorList
+do
+    # Check the value is pink or not
+    if [ $color == 'Pink' ]
+    then
+            echo "My favorite color is $color"
+    fi
+done
+
+
+
+Example-3: Reading Command-line arguments
+
+Command-line arguments values can be iterated by using for loop in bash. Create a new bash file named loop3.sh with the following script to read and print the command-line argument values using for loop.
+
+#!/bin/bash
+# Define loop to read argument values
+for myval in $*
+do
+    # Print each argument
+    echo "Argument: $myval"
+done
+
+
+
+
+Example-4: Finding odd and even number using three expressions
+
+The C-style syntax of for loop is three expression syntax. The first expression indicates initialization, the second expression indicates termination condition, and the third expression indicates increment or decrement. Create a bash file named loop4.sh with the following script to find out the odd and even numbers from 1 to 5.
+
+
+#!/bin/bash
+
+# Define for loop in C-style format
+for (( n=1; n<=5; n++ ))
+do  
+    # Check the number is even or not
+    if (( $n%2==0 ))
+    then
+        echo "$n is even"
+    else
+        echo "$n is odd"
+    fi  
+done
+
+=,-,/,* = %
+
+
+Example-5: Reading file content
+
+You can use for loop to read the content of any file by using the ‘cat’ command. Suppose you have a file named ‘weekday.txt‘ which contains the name of all weekdays. Now, create a bash file named loop5.sh to read and print the content of the file.
+
+#!/bin/bash
+# Initialize the counter
+i=1
+# Define for loop to read the text file
+for var in `cat weekday.txt`
+do
+    # Print the file content
+    echo "Weekday $i: $var"
+    ((i++))
+done
+
+
+Example-6: Create infinite for loop
+
+Create a bash named loop6.bash with the following script to know the way to declare infinite for loop. Here, the loop will iterate for infinite times and print the counter value until the user presses Ctrl+C.
+
+#!/bin/bash
+# Initialize counter variable
+counter=1
+# Display message for termination
+echo "Press Ctrl+c to terminate from the loop"
+# Define infinite loop
+for (( ;; ))
+do
+   # Print the number of iteration
+   echo "Iterating for $counter time(s)."
+   # Wait for 1 second
+   sleep 1
+   # Increment the counter
+   ((counter++))
+done
+
+
+
+Example-7: Use of for loop with command substitute
+
+Create a bash file named loop7.bash with the following script to know the use of for loop to read and print the command output.
+
+#!/bin/bash
+echo "All bash files starting with 'a' are:"
+
+# Read the output of command substitute using for loop
+for val in $(ls a*.bash)
+do
+    # Print the file name
+    echo "$val"
+done
+
+
+Example-8: Conditional exit with break
+
+Create a bash file named loop8.bash with the following script to know the way to exit from the loop based on any particular condition.
+
+#!/bin/bash
+# Define a for loop to iterate 10 times
+for (( i=1; i<=10; i++ ))
+do  
+    # Define the conditions to terminate the loop
+    if (( $i%3==0 && $i%6==0 ))
+    then
+        # Terminate from the loop
+        echo "Terminated."
+        break
+    else
+        # Print the current value of i
+        echo "The current value of i is: $i"
+    fi  
+done
+
+Example-9: Early continuation with continue statement
+
+Create a bash file named loop8.bash with the following script to know how to omit one or more statement(s) from the loop by using a continuous statement based on the particular condition.
+
+#!/bin/bash
+# Declare an associative array
+declare -A Applicants
+# Intialize the array values
+Applicants=( [1022]="Present" [1034]="Present" [1045]="Absent" [1067]="Present" )
+
+echo "List of the applicant's ID who are present:"
+for k in ${!Applicants[@]}
+do
+     # Filter the applicant's ID who are absent
+     if [ ${Applicants[$k]} == "Absent" ]; then
+        continue
+     else
+        # Print the applicant's ID who are present
+        echo $k
+     fi
+done
+
+
+echo "enter number"
+read num
+function prime
+{
+for((i=2; i<=num/2; i++))
+do
+  if [ $((num%i)) -eq 0 ]
+  then
+    echo "$num is not a prime number."
+    exit
+  fi
+done
+echo "$num is a prime number."
+}
+r=`prime $number`
+echo "$r"
+
+
+
 
 
 
