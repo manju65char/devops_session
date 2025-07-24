@@ -3033,6 +3033,288 @@ LINUX/UNIX SERVER --> WINDOWS never works, even somebody ask that, i installed g
 Knowledge on linux commands with various options
 
 
+===================
+
+24th july 2025 : 
+
+
+storage types : 
+
+4 types or level of storage 
+
+1.ebs -> block level storage -> elastic block storage, root volume or boot volume or disk or storage 
+2.efs -> file level storage -> elastic file system -> network file system service 
+
+3.s3 ->  object level storage -> 
+4.RDS ->  server level storage -> 
+
+
+==============
+
+except s3, remaining 3 level of storages require server, without server these are wont work 
+
+
+
+ebs : 
+
+8gb --> 30gb -> 
+
+migrating the disk or ebs from one instance to another instance in same region or diff region 
+
+
+
+2 diff project 
+
+project a -> server  --> snapshot ---> new volume --> new instance 
+
+
+horizontal and vertical scaling 
+
+resize the vm disk --> 
+
+100gb disk ---> 200gb -----------> VM 
+100gb disk ---> new disk -------> VM -------> mount to vm 
+
+3 hrs --> vm --> k8s cluster --> restart -> any service --> volumes 
+
+==========
+
+
+disk 
+
+ssd 250 Gi  or hdd -> 1Ti 
+
+2 main 
+
+web application : 
+hit -> mobile -> latency , 
+watching live match 
+
+50gb ssd --------> pendrive   -> 15 mins      100MBPS , 1000MBPS ,     20gb -> 
+
+50gb HDD --------> pendrive  -> 50 mins 
+
+
+throughput : how speed the data transfers in MBPS   -> 
+
+IOPS  -> How speed the data reads and writes --> 
+
+swiggy , CRUD 
+--> pizza,coke,zeera, modify --> 
+
+ssd 
+
+
+================
+
+snapshots  --> copy of ebs 
+
+5000 ebs in single account --> 
+
+ebs snapshots 10000 in single account 
+
+
+
+types of  ebs volumes :
+
+gp2 and gp3 --> general purpose ssd    -. dev/test env -->   postgess --> med 
+
+gp2 --> not provisioned IOPS and throughout 
+
+gp3 -> 
+
+4 env : 
+
+prod   -> 
+
+stage
+dev
+test
+
+
+io1 and io2  -> provisioned IOPS SSD 
+
+I/O Intensive workloads, 
+
+MySQL --> 
+
+
+
+throughput optimized HDD (st1)
+
+big data, data warehousing , log processing 
+
+
+
+when you are going to use high throughput while using low IOPS 
+
+when you are going to use low throughput while using high IOPS 
+
+
+every second or every mins,
+
+3days , weekly once, 
+Cold HDD --> Back up storage , archiving , infrequent access workloads 
+
+
+Magnetic (std )
+
+--> similar to cold hdd 
+
+
+amazon.com 
+
+
+on aws 
+
+app -> web server, database server and data analytics engine 
+
+gp3 --> root file system web server instances (httpd or apache2) and cost and performance , 
+
+io2 -> backend database   -> MySQL server -->  that handles transactions or customer data is stored on io2 volumes ,  this ensure that the database can handle a high volumes of read/write operations efficiently, providing low latency access to critical data 
+
+
+throughput optimized HDD (st1)  : apche2 spark, pyspark , Hadoop, --> that process the logs files and customer interaction data,  to handle the sequential read/write operations 
+
+
+cold hdd --> old trasactions logs or user history 
+
+
+==============================
+
+instance type : memory and cpu  -> vm size or SKU 
+
+ebs  -> disk
+
+ec2 instace A -> volume A   8gb  16gb  or 
+
+
+
+ec2 instance B,C,D,E 
+
+
+single project 
+
+shared volume  or network file system or EFS in aws 
+
+
+
+EFS 1 -> efs id efs-12345
+
+
+
+any vm or ec2 instances --> efs-12345 16gb -> 16gb --->  (auto scaling mechanism )
+
+
+efs  or Azurefile 
+
+how are you going to setup shared volume between the servers (A,B) ? 
+
+
+========================
+
+
+efs : 
+
+
+file system is shared via network 
+
+
+big data and anytics,  amazon.com -> order,catalog,cart,payment, user  as a pvc (persistent volume ) -> EBS, EFS 
+
+
+
+Linux -> efs    -> nfs 
+windows -> Fsx   -> smd 
+
+
+
+5 people --> same project  amazon 
+
+
+efs ---> 
+
+command ----------> efs utlis 
+
+
+person a -->        /amazon-tasks                /mainfile
+person b            /az-task                     /mainfile
+person c            /
+person d 
+person e 
+
+
+
+EFS -> google drive 
+
+
+
+storage services : 
+
+DAS
+direct access storage ---> pendrive , memory 
+
+NAS  -> nfs or efs 
+SAN  ->  storage area network    -> ebs only 
+
+
+=======
+
+
+how are we going to  mount the efs to multiple servers 
+
+server1 
+server2 
+
+shared file system 
+
+/main
+
+==================
+
+
+
+server 1 ---> sg-05215afb79e434e40   - us-east-1a
+server 2 ---> sg-0c5f2d496d4ccc038   -> us-east-1b 
+
+server3 
+
+
+sg -> efs-sg 
+
+
+on server 1 :
+
+install the nfs utility or nfs client 
+
+sudo apt-get update
+sudo apt-get -y install nfs-common
+
+
+sudo mkdir -p /mnt/<custom dir name >   -> 
+
+
+
+
+
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,intr,timeo=600,retrans=2 fs-09a13781c62ff9926.efs.us-east-1.amazonaws.com:/ /mnt/efs
+
+
+on server 2 : 
+
+
+sudo apt-get update
+sudo apt-get -y install nfs-common
+
+
+sudo mkdir -p /mnt/server2-dir
+
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,intr,timeo=600,retrans=2 fs-09a13781c62ff9926.efs.us-east-1.amazonaws.com:/ /mnt/server2-dir
+
+
+
 
 
 
